@@ -61,7 +61,10 @@ function Home() {
                     <div className="productsWrapper">
                         {movie.slice(startIndex, endIndex).map(movieItem => (
                             <div key={movieItem.id} className="card">
-                                <Link to={`/movies/${movieItem.id}/${movieItem.movie}`}><video src={movieItem.image} alt="" /></Link>
+                                <Link to={`/movies/${movieItem.id}/${movieItem.movie.toLowerCase().replace(/\s+/g, '-')}`}>
+                                    <video src={movieItem.image} alt="" />
+                                </Link>
+
                                 <h4>{movieItem.movie}</h4>
                                 <button className='btn' onClick={() => handleAddToWatchLetter(movieItem)}>+</button>
                             </div>
