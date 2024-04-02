@@ -52,7 +52,9 @@ function Home() {
                 {filter.length > 0 ? (
                     filter.slice(startIndex, endIndex).map(filteredMovie => (
                         <div key={filteredMovie.id} className="card">
-                            <Link to={`/movies/${filteredMovie.id}/${filteredMovie.movie}`}><video src={filteredMovie.image} alt="" /></Link>
+                            <Link to={`/movies/${filteredMovie.id}/${filteredMovie.movie.toLowerCase().replace(/\s+/g, '-')}`}>
+                                <video src={filteredMovie.image} alt="" />
+                            </Link>
                             <h4>{filteredMovie.movie}</h4>
                             <button className='btn' onClick={() => handleAddToWatchLetter(filteredMovie)}>+</button>
                         </div>

@@ -16,7 +16,9 @@ function watchletters() {
         {
           movie.map((movies) => (
             <div key={movies.id} className="card">
-              <Link to={`/movies/${movies.id}/${movies.movie}`}> <video src={movies.image} alt="" /></Link>
+              <Link to={`/movies/${movies.id}/${movies.movie.toLowerCase().replace(/\s+/g, '-')}`}>
+                <video src={movies.image} alt="" />
+              </Link>
               <h4>{movies.movie}</h4>
               <button className='btn' onClick={() => handleremove(movies.id)}>-</button>
             </div>
