@@ -35,17 +35,26 @@ const MoviceSlice = createSlice({
         },
         setCurrentPage(state, action) {
             state.currentPage = action.payload
+        },
+        setPageSize(state, action) {
+            state.pageSize = action.payload
         }
     }
 
 })
 
-export const { getallapi, filtermovie, addtowatchletter, removetowatchletter, setCurrentPage } = MoviceSlice.actions
+export const { getallapi, filtermovie, addtowatchletter, removetowatchletter, setCurrentPage, setPageSize } = MoviceSlice.actions
 
 export const moviedata = () => {
     return async dispatch => {
         const data = await datamovie.getAll()
         dispatch(getallapi(data))
+    }
+}
+
+export const setPerPageSize = (pageSize) => {
+    return dispatch => {
+        dispatch(setPageSize(pageSize));
     }
 }
 export default MoviceSlice.reducer

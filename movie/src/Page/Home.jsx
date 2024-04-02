@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addtowatchletter, filtermovie, moviedata, setCurrentPage } from '../Store/Movieslice'
+import { addtowatchletter, filtermovie, moviedata, setCurrentPage, setPerPageSize } from '../Store/Movieslice'
 function Home() {
     const dispatch = useDispatch()
     const movie = useSelector(state => state.movie.movie)
@@ -20,6 +20,9 @@ function Home() {
     };
     const handleAddToWatchLetter = (movie) => {
         dispatch(addtowatchletter(movie));
+    };
+    const handlePerPageChange = (e) => {
+        dispatch(setPerPageSize(parseInt(e.target.value)));
     };
 
     const handlePageChange = page => {
@@ -48,6 +51,7 @@ function Home() {
         <div>
             <h1>Movies</h1>
             <input className='input' type="text" placeholder='Search Movie Name' onChange={handleFilterChange} /><br /><br />
+            <input type="number" value={pageSize} onChange={handlePerPageChange} /><br /><br />
             <div className="productsWrapper">
                 {filter.length > 0 ? (
                     filter.slice(startIndex, endIndex).map(filteredMovie => (
