@@ -22,7 +22,9 @@ function Home() {
         dispatch(addtowatchletter(movie));
     };
     const handlePerPageChange = (e) => {
-        dispatch(setPerPageSize(parseInt(e.target.value)));
+        const newPageSize = parseInt(e.target.value);
+        dispatch(setPerPageSize(newPageSize));
+        dispatch(setCurrentPage(1));
     };
 
     const handlePageChange = page => {
@@ -40,7 +42,7 @@ function Home() {
 
     };
 
-    const totalPages = Math.ceil((filter.length || movie.length) / pageSize);
+    const totalPages = Math.ceil((filter?.length || movie?.length || 0) / pageSize);
 
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -51,7 +53,14 @@ function Home() {
         <div>
             <h1>Movies</h1>
             <input className='input' type="text" placeholder='Search Movie Name' onChange={handleFilterChange} /><br /><br />
-            <input type="number" value={pageSize} onChange={handlePerPageChange} /><br /><br />
+            <div className='perpage'>
+                <h4>Perpage Size</h4><select className='select' value={pageSize} onChange={handlePerPageChange}>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select><br /><br />
+            </div><br /><br />
             <div className="productsWrapper">
                 {filter.length > 0 ? (
                     filter.slice(startIndex, endIndex).map(filteredMovie => (
@@ -83,9 +92,13 @@ function Home() {
             <br />
             <div>
                 <button onClick={() => handlePageChange(currentPage - 1)}>Previous</button>
+                {/* {[...Array(totalPages).keys()].map(page => (
+                    <button key={page + 1} onClick={() => handlePageChange(page + 1)}>{page + 1}</button>
+                ))} */}
                 {[...Array(totalPages).keys()].map(page => (
                     <button key={page + 1} onClick={() => handlePageChange(page + 1)}>{page + 1}</button>
                 ))}
+
                 <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>
             </div>
         </div>
