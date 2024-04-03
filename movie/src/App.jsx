@@ -10,6 +10,8 @@ import Home from './Page/Home'
 import Watchletters from './Page/Watchletters'
 import Navbar from './Component/Navbar'
 import MovieDetails from './Page/MovieDetails'
+import Login from './Page/Login'
+import Singup from './Page/Singup'
 function App() {
 
 
@@ -24,6 +26,8 @@ function App() {
             <Route path='/movies' element={<Home />}></Route>
             <Route path='/movies/Watchletter' element={<Watchletters />}></Route>
             <Route path="/movies/:id/:movie" element={<MovieDetails />} />
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/singup' element={<Singup />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>

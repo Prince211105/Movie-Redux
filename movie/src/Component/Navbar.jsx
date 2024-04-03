@@ -7,6 +7,8 @@ function Navbar() {
             
             <Link to='/movies' className="navLink">Home</Link>
             <Link to='/movies/Watchletter' className="navLink">Watch letter</Link>
+            {/* <Link to='/login' className="navLink">Login</Link>
+            <Link to='/singup' className="navLink">Singup</Link> */}
         </div>
     )
 }

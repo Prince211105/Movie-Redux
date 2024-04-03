@@ -73,3 +73,13 @@ video {
   border-radius: 5px;
   
 }
+
+.perpage{
+  display: flex;
+  gap: 20px;
+  
+}
+
+.select{
+  padding: 10px;
+}
