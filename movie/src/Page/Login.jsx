@@ -36,7 +36,7 @@ function Login() {
   }
   return (
     <div>
-      <h2>Singup Form</h2>
+      <h2>Login</h2>
       <form onSubmit={addlogin}>
         <div>
           <b>Email :</b> <br />
