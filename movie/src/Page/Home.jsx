@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addtowatchletter, filtermovie, moviedata, setCurrentPage, setPerPageSize } from '../Store/Movieslice'
+import Navbar from '../Component/Navbar'
 function Home() {
     const dispatch = useDispatch()
     const movie = useSelector(state => state.movie.movie)
@@ -51,6 +52,7 @@ function Home() {
     return (
 
         <div>
+            <Navbar />
             <h1>Movies</h1>
             <input className='input' type="text" placeholder='Search Movie Name' onChange={handleFilterChange} /><br /><br />
             <div className='perpage'>

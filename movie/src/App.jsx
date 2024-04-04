@@ -20,14 +20,14 @@ function App() {
 
       <Provider store={store}>
         <BrowserRouter>
-          <Navbar />
+          
           <Routes>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/' element={<Singup />}></Route>
+            <Route path='/singup' element={<Singup />}></Route>
+            <Route path='/login' element={<Login />}></Route>
             <Route path='/movies' element={<Home />}></Route>
             <Route path='/movies/Watchletter' element={<Watchletters />}></Route>
             <Route path="/movies/:id/:movie" element={<MovieDetails />} />
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/singup' element={<Singup />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>

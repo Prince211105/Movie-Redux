@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removetowatchletter } from '../Store/Movieslice'
+import Navbar from '../Component/Navbar'
 
 function watchletters() {
   const dispatch = useDispatch()
@@ -11,6 +12,7 @@ function watchletters() {
   }
   return (
     <div>
+      <Navbar />
       <h2>watchletters</h2>
       <div className="productsWrapper">
         {
